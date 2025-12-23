@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Cairo:wght@400;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +29,10 @@
             <li><a href="login.html" data-i18n="nav_login">Login</a></li>
             <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
         </ul>
-        <button class="btn-icon" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+        <div class="nav-controls">
+            <button class="btn-icon" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="btn-icon" id="lang-toggle" onclick="toggleLang()">AR</button>
+        </div>
     </nav>
 
     <div id="scroll-top">↑</div>
