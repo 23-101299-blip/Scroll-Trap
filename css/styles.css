@@ -423,8 +423,15 @@ nav {
 /* Session Stats */
 .session-stats {
     background: #000;
+    color: #fff;
     padding: 6rem 5%;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+[data-theme="light"] .session-stats {
+    background: #fff;
+    color: #000;
 }
 
 .session-stats h3 {
