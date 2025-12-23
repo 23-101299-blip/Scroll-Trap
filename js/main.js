@@ -1,57 +1,4 @@
-// Localization Data
-const translations = {
-    en: {
-        logo: "Scroll Trap",
-        nav_home: "Home",
-        nav_stats: "Impact",
-        nav_addiction: "Addiction",
-        nav_privacy: "Privacy & Stats",
-        nav_gallery: "Gallery",
-        nav_contact: "Contact",
-        hero_title_1: "Addiction Pathways",
-        hero_title_2: "Dopamine Loops",
-        read_more: "Read More",
-        read_less: "Read Less",
-        footer_mission: "Empowering individuals to reclaim their attention in a digital world designed to distract.",
-        footer_resources: "Resources",
-        footer_stats: "Addiction Statistics",
-        footer_tips: "Mindfulness Tips",
-        footer_impact: "Neurological Impact",
-        footer_guides: "Digital Detox Guides",
-        footer_community: "Community",
-        footer_stories: "Success Stories",
-        footer_forum: "Awareness Forum",
-        footer_events: "Live Workshops",
-        lang_toggle: "AR"
-    },
-    ar: {
-        logo: "فخ التمرير",
-        nav_home: "الرئيسية",
-        nav_stats: "التأثير",
-        nav_addiction: "الإدمان",
-        nav_privacy: "الخصوصية والإحصائيات",
-        nav_gallery: "المعرض",
-        nav_contact: "اتصل بنا",
-        hero_title_1: "مسارات الإدمان",
-        hero_title_2: "حلقات الدوبامين",
-        read_more: "اقرأ المزيد",
-        read_less: "اقرأ أقل",
-        footer_mission: "تمكين الأفراد من استعادة انتباههم في عالم رقمي صُمم لتشتيتهم.",
-        footer_resources: "الموارد",
-        footer_stats: "إحصائيات الإدمان",
-        footer_tips: "نصائح الوعي",
-        footer_impact: "التأثير العصبي",
-        footer_guides: "أدلة التخلص من السموم الرقمية",
-        footer_community: "المجتمع",
-        footer_stories: "قصص النجاح",
-        footer_forum: "منتدى التوعية",
-        footer_events: "ورش عمل مباشرة",
-        lang_toggle: "EN"
-    }
-};
-
 // State Management
-let currentLang = localStorage.getItem('lang') || 'en';
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
 // Preloader & Main Init
@@ -66,7 +13,6 @@ window.addEventListener('load', () => {
 
 function init() {
     applyTheme(currentTheme);
-    applyLang(currentLang);
     highlightActiveLink();
     setupScrollTop();
     renderScrollFeatures();
@@ -92,33 +38,6 @@ function applyTheme(theme) {
     }
 }
 
-// Localization Functions
-function toggleLang() {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    localStorage.setItem('lang', currentLang);
-    applyLang(currentLang);
-}
-
-function applyLang(lang) {
-    document.body.className = lang === 'ar' ? 'lang-ar' : '';
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
-        }
-    });
-
-    // Update dynamic buttons
-    document.querySelectorAll('.btn-read').forEach(btn => {
-        const isLess = btn.innerText === translations['en'].read_less || btn.innerText === translations['ar'].read_less;
-        btn.innerText = isLess ? translations[lang].read_less : translations[lang].read_more;
-    });
-
-    // Re-render dynamic content if language changes
-    renderScrollFeatures();
-    initSlider();
-    initGallery();
-}
 
 // Highlight Active Nav Link
 function highlightActiveLink() {
@@ -150,49 +69,33 @@ function setupScrollTop() {
 }
 
 // Random Tip Utility
-const mindfulnessTips = {
-    en: [
-        "Leave your phone in another room while eating.",
-        "Turn off all non-essential notifications.",
-        "Set a specific time to check social media today.",
-        "Try a 30-minute digital-free walk.",
-        "Use a physical alarm clock instead of your phone."
-    ],
-    ar: [
-        "اترك هاتفك في غرفة أخرى أثناء الأكل.",
-        "أوقف جميع التنبيهات غير الضرورية.",
-        "حدد وقتاً معيناً لتصفح وسائل التواصل اليوم.",
-        "جرب المشي لمدة 30 دقيقة بدون أجهزة رقمية.",
-        "استخدم منبهاً حقيقياً بدلاً من هاتفك."
-    ]
-};
+const mindfulnessTips = [
+    "Leave your phone in another room while eating.",
+    "Turn off all non-essential notifications.",
+    "Set a specific time to check social media today.",
+    "Try a 30-minute digital-free walk.",
+    "Use a physical alarm clock instead of your phone."
+];
 
 function displayRandomTip() {
     const el = document.getElementById('random-tip-text');
     if (!el) return;
-    const tips = mindfulnessTips[currentLang];
-    el.innerText = tips[Math.floor(Math.random() * tips.length)];
+    el.innerText = mindfulnessTips[Math.floor(Math.random() * mindfulnessTips.length)];
 }
 
 // Endless Scroll Features Data
 const scrollFeatures = [
     {
-        title_en: "No Natural End",
-        title_ar: "لا نهاية طبيعية",
-        desc_en: "Infinite content means you never reach the 'bottom', so there's always more to see.",
-        desc_ar: "المحتوى اللانهائي يعني أنك لن تصل أبداً إلى 'القاع'، لذا هناك دائماً المزيد لتراه."
+        title: "No Natural End",
+        desc: "Infinite content means you never reach the 'bottom', so there's always more to see."
     },
     {
-        title_en: "Time Distortion",
-        title_ar: "تشويه الوقت",
-        desc_en: "Loss of track of time as you're in a 'flow state' while gazing at your screen.",
-        desc_ar: "فقدان الشعور بالوقت بينما تكون في 'حالة تدفق' أثناء التحديق في شاشتك."
+        title: "Time Distortion",
+        desc: "Loss of track of time as you're in a 'flow state' while gazing at your screen."
     },
     {
-        title_en: "FOMO Amplified",
-        title_ar: "تضخيم الخوف من الفوات",
-        desc_en: "Constant updates create a fear that missing even one post means the end of the world.",
-        desc_ar: "التحديثات المستمرة تخلق خوفاً من أن تفويت منشور واحد يعني نهاية العالم."
+        title: "FOMO Amplified",
+        desc: "Constant updates create a fear that missing even one post means the end of the world."
     }
 ];
 
@@ -202,8 +105,8 @@ function renderScrollFeatures() {
 
     container.innerHTML = scrollFeatures.map(feat => `
         <div class="feature-col">
-            <h4>${currentLang === 'en' ? feat.title_en : feat.title_ar}</h4>
-            <p>${currentLang === 'en' ? feat.desc_en : feat.desc_ar}</p>
+            <h4>${feat.title}</h4>
+            <p>${feat.desc}</p>
         </div>
     `).join('');
 }
@@ -211,9 +114,9 @@ function renderScrollFeatures() {
 // Slider Logic
 let currentSlide = 0;
 const sliderImages = [
-    { src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000', title_en: 'Endless Scrolling', title_ar: 'تمرير بلا نهاية' },
-    { src: 'https://images.unsplash.com/photo-1542314831068cd1dbfeeb?q=80&w=1000', title_en: 'Digital Isolation', title_ar: 'العزلة الرقمية' },
-    { src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1000', title_en: 'Mindful Usage', title_ar: 'الاستخدام الواعي' }
+    { src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000', title: 'Endless Scrolling' },
+    { src: 'https://images.unsplash.com/photo-1542314831068cd1dbfeeb?q=80&w=1000', title: 'Digital Isolation' },
+    { src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1000', title: 'Mindful Usage' }
 ];
 
 function initSlider() {
@@ -223,9 +126,9 @@ function initSlider() {
 
     sliderWrapper.innerHTML = sliderImages.map(img => `
         <div class="slide">
-            <img src="${img.src}" alt="${img.title_en}">
+            <img src="${img.src}" alt="${img.title}">
             <div class="slide-caption">
-                <h3>${currentLang === 'en' ? img.title_en : img.title_ar}</h3>
+                <h3>${img.title}</h3>
             </div>
         </div>
     `).join('');
@@ -330,7 +233,7 @@ function saveFormData(e) {
     let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
     messages.push(data);
     localStorage.setItem('contactMessages', JSON.stringify(messages));
-    alert(currentLang === 'en' ? 'Message sent!' : 'تم الإرسال!');
+    alert('Message sent!');
     e.target.reset();
 }
 
@@ -357,14 +260,14 @@ function initReadMore() {
             p.innerText = short;
             const btn = document.createElement('button');
             btn.className = 'btn-read';
-            btn.innerText = translations[currentLang].read_more;
+            btn.innerText = 'Read More';
             btn.onclick = () => {
                 if (p.innerText === short) {
                     p.innerText = full;
-                    btn.innerText = translations[currentLang].read_less;
+                    btn.innerText = 'Read Less';
                 } else {
                     p.innerText = short;
-                    btn.innerText = translations[currentLang].read_more;
+                    btn.innerText = 'Read More';
                 }
             };
             p.after(btn);
