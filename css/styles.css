@@ -422,7 +422,7 @@ nav {
 
 /* Session Stats */
 .session-stats {
-    background: linear-gradient(90deg, #9333ea, #db2777);
+    background: #000;
     padding: 6rem 5%;
     text-align: center;
 }
