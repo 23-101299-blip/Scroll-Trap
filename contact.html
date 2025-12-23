@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Scroll Trap</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <a href="index.html" class="logo">SCROLL TRAP</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+            <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
+            <li><a href="login.html" data-i18n="nav_login">Login</a></li>
+            <li><a href="contact.html" class="active" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="btn-icon" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <div id="scroll-top">↑</div>
+
+    <section class="contact-section">
+        <h1 data-i18n="nav_contact" style="text-align: center; margin-bottom: 2rem;">Contact Us</h1>
+        <div class="contact-form-container">
+            <form onsubmit="saveFormData(event)" class="form-horizontal">
+                <div class="form-group">
+                    <label data-i18n="contact_name">Name</label>
+                    <input type="text" id="contact-name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="contact_email">Email</label>
+                    <input type="email" id="contact-email" required placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <label data-i18n="contact_msg">Message</label>
+                    <input type="text" id="contact-message" required placeholder="Your Message">
+                </div>
+                <button type="submit" class="btn-primary" data-i18n="contact_send">Send</button>
+            </form>
+        </div>
+
+        <div class="contact-info-grid">
+            <div class="info-card">
+                <span class="info-icon">📞</span>
+                <h3>Helpline</h3>
+                <p>+1 (800) ATTENTION</p>
+                <p>Available 24/7 for support</p>
+            </div>
+            <div class="info-card">
+                <span class="info-icon">📍</span>
+                <h3>Headquarters</h3>
+                <p>Digital Wellness Center</p>
+                <p>San Francisco, CA</p>
+            </div>
+            <div class="info-card">
+                <span class="info-icon">✉️</span>
+                <h3>General Inquiries</h3>
+                <p>awareness@scrolltrap.org</p>
+                <p>Response within 24h</p>
+            </div>
+        </div>
+
+        <div class="crisis-alert">
+            <h4 data-i18n="crisis_title">Need immediate help?</h4>
+            <p data-i18n="crisis_body">If you or someone you know is experiencing severe distress or digital compulsions
+                that affect safety, please contact your local emergency services or a mental health professional
+                immediately.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">SCROLL TRAP</a>
+                <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.8rem;" data-i18n="footer_mission">
+                    Empowering individuals to reclaim their attention in a digital world designed to distract.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_resources">Resources</h4>
+                <ul>
+                    <li data-i18n="footer_stats">Addiction Statistics</li>
+                    <li data-i18n="footer_tips">Mindfulness Tips</li>
+                    <li data-i18n="footer_impact">Neurological Impact</li>
+                    <li data-i18n="footer_guides">Digital Detox Guides</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_community">Community</h4>
+                <ul>
+                    <li data-i18n="footer_stories">Success Stories</li>
+                    <li data-i18n="footer_forum">Awareness Forum</li>
+                    <li data-i18n="footer_events">Live Workshops</li>
+                    <li data-i18n="nav_gallery">Image Gallery</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="nav_contact">Contact Us</h4>
+                <p>Support@scrolltrap.org</p>
+                <p>Global Campaign H.Q.</p>
+                <p>+1 800 ATTENTION</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
