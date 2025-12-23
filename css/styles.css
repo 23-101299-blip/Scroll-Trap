@@ -35,10 +35,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-body.lang-ar {
-    direction: rtl;
-    font-family: 'Cairo', sans-serif;
-}
 
 /* Preloader */
 #preloader {
