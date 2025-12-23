@@ -218,8 +218,17 @@ function selectUser(name) {
 
 function handleLogin(e) {
     e.preventDefault();
-    alert('Login successful! Welcome back.');
-    window.location.href = 'index.html';
+    const user = document.getElementById('login-username').value;
+    const pass = document.getElementById('login-password').value;
+    const errorMsg = document.getElementById('login-error');
+
+    if (user === 'ali' && pass === 'aligameel') {
+        if (errorMsg) errorMsg.style.display = 'none';
+        alert('Login successful! Welcome back, Ali.');
+        window.location.href = 'index.html';
+    } else {
+        if (errorMsg) errorMsg.style.display = 'block';
+    }
 }
 
 // Contact Logic
