@@ -159,21 +159,19 @@ function updateSlider() {
     dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
 }
 
-// Gallery Logic
-const galleryImages = [
-    { src: 'assets/images/scroll_awareness.jpg', title: 'The Endless Void', info: 'Infinite feeds are designed to keep you scrolling long after your interest has faded.' },
-    { src: 'assets/images/silent_room.jpg', title: 'The Silent Room', info: 'Presence is becoming a luxury as we choose pixels over the people sitting right next to us.' },
-    { src: 'assets/images/nomophobia.jpg', title: 'The Modern Cage', info: 'The fear of being without a device is a documented psychological state.' },
-    { src: 'assets/images/great_disconnect.jpg', title: 'Silent Dinners', info: 'Presence is becoming a luxury as we choose pixels over people nearby.' },
-    { src: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1000', title: 'The Loop', info: 'Infinite scrolling eliminates the natural stopping points our brains need.' },
-    { src: 'https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000', title: 'Screens of Sleep', info: 'Blue light suppresses melatonin, disrupting our natural circadian rhythms.' }
-];
+// Gallery Slider Logic
+let currentGallerySlide = 0;
+let galleryAutoplayInterval = null;
 
 function initGallery() {
-    const grid = document.getElementById('gallery-grid');
-    if (!grid) return;
-    grid.innerHTML = galleryImages.map(img => `
-        <div class="gallery-item reveal" onclick="openLightbox('${img.src}', '${img.title}')">
+    const track = document.getElementById('gallery-slider-track');
+    const dotsContainer = document.getElementById('gallery-slider-dots');
+
+    if (!track) return;
+
+    // Render slides
+    track.innerHTML = galleryImages.map((img, index) => `
+        <div class="gallery-slide" onclick="openLightbox('${img.src}', '${img.title}')">
             <img src="${img.src}" alt="${img.title}">
             <div class="gallery-overlay">
                 <div class="overlay-title">${img.title}</div>
@@ -181,6 +179,56 @@ function initGallery() {
             </div>
         </div>
     `).join('');
+
+    // Render navigation dots
+    if (dotsContainer) {
+        dotsContainer.innerHTML = galleryImages.map((_, i) => `
+            <span class="dot ${i === currentGallerySlide ? 'active' : ''}" onclick="goToGallerySlide(${i})"></span>
+        `).join('');
+    }
+
+    updateGallerySlider();
+    startGalleryAutoplay();
+}
+
+function moveGallerySlide(direction) {
+    stopGalleryAutoplay();
+    currentGallerySlide = (currentGallerySlide + direction + galleryImages.length) % galleryImages.length;
+    updateGallerySlider();
+}
+
+function goToGallerySlide(index) {
+    stopGalleryAutoplay();
+    currentGallerySlide = index;
+    updateGallerySlider();
+}
+
+function updateGallerySlider() {
+    const track = document.getElementById('gallery-slider-track');
+    const dots = document.querySelectorAll('#gallery-slider-dots .dot');
+
+    if (!track) return;
+
+    track.style.transform = `translateX(-${currentGallerySlide * 100}%)`;
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentGallerySlide);
+    });
+}
+
+function startGalleryAutoplay() {
+    // Auto-advance every 5 seconds
+    galleryAutoplayInterval = setInterval(() => {
+        currentGallerySlide = (currentGallerySlide + 1) % galleryImages.length;
+        updateGallerySlider();
+    }, 5000);
+}
+
+function stopGalleryAutoplay() {
+    if (galleryAutoplayInterval) {
+        clearInterval(galleryAutoplayInterval);
+        galleryAutoplayInterval = null;
+    }
 }
 
 // Lightbox Functions

@@ -46,9 +46,17 @@
         </div>
     </section>
 
+
     <section class="gallery-container">
-        <div id="gallery-grid" class="gallery-grid">
-            <!-- Items injected by JS -->
+        <div class="slider-container">
+            <button class="slider-arrow prev" onclick="moveGallerySlide(-1)" aria-label="Previous slide">❮</button>
+            <div class="slider-track" id="gallery-slider-track">
+                <!-- Slides injected by JS -->
+            </div>
+            <button class="slider-arrow next" onclick="moveGallerySlide(1)" aria-label="Next slide">❯</button>
+        </div>
+        <div class="slider-navigation">
+            <div id="gallery-slider-dots" class="slider-dots"></div>
         </div>
     </section>
 
