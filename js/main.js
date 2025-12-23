@@ -205,14 +205,15 @@ function toggleZoom() {
 }
 
 // Login Logic
-function selectUser(gender) {
+function selectUser(name) {
     document.querySelectorAll('.user-card').forEach(card => card.classList.remove('selected'));
-    const card = document.getElementById(`user-${gender}`);
+    const id = name === 'Ali' ? 'user-male' : 'user-female';
+    const card = document.getElementById(id);
     if (card) card.classList.add('selected');
     const form = document.getElementById('login-form-container');
     if (form) form.style.display = 'block';
     const label = document.getElementById('selected-user-type');
-    if (label) label.innerText = gender === 'male' ? 'Male User' : 'Female User';
+    if (label) label.innerText = `Login as ${name}`;
 }
 
 function handleLogin(e) {
