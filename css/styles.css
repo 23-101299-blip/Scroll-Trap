@@ -33,8 +33,9 @@ body {
     color: var(--text-color);
     font-family: var(--font-main);
     line-height: 1.5;
-    overflow-x: hidden;
+    overflow-x: auto;
     transition: background-color 0.3s, color 0.3s;
+    min-width: 1200px;
 }
 
 
@@ -848,40 +849,6 @@ th {
     display: none !important;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-    .feature-card {
-        grid-template-columns: 1fr;
-    }
-
-    .card-content {
-        padding: 3rem;
-    }
-
-    .block {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hero-redesign {
-        height: auto;
-        padding: 15rem 5% 5rem;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .card-features {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* Scroll Reveal Animation */
 .reveal {
