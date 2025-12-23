@@ -39,7 +39,6 @@ body {
 
 
 
-/* Preloader */
 #preloader {
     position: fixed;
     top: 0;
@@ -72,7 +71,6 @@ body {
     }
 }
 
-/* Navigation Bar */
 nav {
     position: fixed;
     top: 0;
@@ -137,7 +135,6 @@ nav {
     transform: scale(1.1);
 }
 
-/* Hero */
 .hero-redesign {
     position: relative;
     width: 100%;
@@ -149,7 +146,6 @@ nav {
     margin-left: calc(-50vw + 50%);
     overflow: hidden;
     height: 90vh;
-    /* Restore original large hero height */
 }
 
 .hero-gfx img {
@@ -169,11 +165,9 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* Positioning text at the top as before */
     align-items: center;
     text-align: center;
     padding-top: 180px;
-    /* Space for navbar + clear space */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0) 100%);
     z-index: 5;
 }
@@ -212,7 +206,6 @@ nav {
     }
 }
 
-/* Numbers */
 .numbers-section {
     padding: 6rem 5%;
     text-align: center;
@@ -254,7 +247,6 @@ nav {
     font-size: 0.9rem;
 }
 
-/* Feature Card */
 .feature-card-section {
     padding: 4rem 5%;
 }
@@ -308,7 +300,6 @@ nav {
     object-fit: cover;
 }
 
-/* Big Statement */
 .big-statement {
     padding: 10rem 5%;
     text-align: center;
@@ -329,7 +320,6 @@ nav {
     margin: 0 auto;
 }
 
-/* Content Blocks */
 .content-blocks {
     padding: 6rem 5%;
     display: flex;
@@ -348,7 +338,6 @@ nav {
 
 .block.reverse {
     direction: ltr;
-    /* Ensure text always left, img right for specific layout */
 }
 
 .block.reverse .block-img {
@@ -395,7 +384,6 @@ nav {
     box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
 }
 
-/* Infinite Section */
 .infinite-section {
     padding: 10rem 5%;
     text-align: center;
@@ -423,7 +411,6 @@ nav {
     color: var(--text-gray);
 }
 
-/* Session Stats */
 .session-stats {
     background: linear-gradient(90deg, #9333ea, #db2777);
     padding: 6rem 5%;
@@ -453,12 +440,10 @@ nav {
     opacity: 0.9;
 }
 
-/* Detailed Section Padding */
 section {
     padding: 100px 10%;
 }
 
-/* Gallery Section */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -505,7 +490,6 @@ section {
     opacity: 1;
 }
 
-/* Lightbox Modal */
 #lightbox {
     position: fixed;
     top: 0;
@@ -553,7 +537,6 @@ section {
     width: 100%;
 }
 
-/* Login Page Styles */
 .login-container {
     padding-top: 150px !important;
     max-width: 800px;
@@ -665,7 +648,6 @@ section {
     filter: brightness(1.1);
 }
 
-/* Contact Section & Horizontal Form */
 .contact-section {
     padding-top: 150px !important;
     max-width: 1400px;
@@ -757,7 +739,6 @@ section {
     opacity: 0.8;
 }
 
-/* Messages Page Table */
 .table-container {
     padding-top: 150px !important;
 }
@@ -784,7 +765,6 @@ th {
     font-weight: 700;
 }
 
-/* Footer Section */
 .main-footer {
     padding: 6rem 10%;
     background: var(--bg-color);

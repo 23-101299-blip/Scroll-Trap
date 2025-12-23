@@ -1,7 +1,5 @@
-// State Management
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
-// Preloader & Main Init
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -23,7 +21,6 @@ function init() {
     initScrollAnimations();
 }
 
-// Theme Functions
 function toggleTheme() {
     currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', currentTheme);
@@ -38,7 +35,6 @@ function applyTheme(theme) {
     }
 }
 
-// Highlight Active Nav Link
 function highlightActiveLink() {
     const fileName = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -51,7 +47,6 @@ function highlightActiveLink() {
     });
 }
 
-// Scroll Top Utility
 function setupScrollTop() {
     const btn = document.getElementById('scroll-top');
     if (!btn) return;
@@ -67,7 +62,6 @@ function setupScrollTop() {
     btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Random Tip Utility
 const mindfulnessTips = [
     "Leave your phone in another room while eating.",
     "Turn off all non-essential notifications.",
@@ -82,7 +76,6 @@ function displayRandomTip() {
     el.innerText = mindfulnessTips[Math.floor(Math.random() * mindfulnessTips.length)];
 }
 
-// Endless Scroll Features Data
 const scrollFeatures = [
     {
         title: "No Natural End",
@@ -110,7 +103,6 @@ function renderScrollFeatures() {
     `).join('');
 }
 
-// Slider Logic
 let currentSlide = 0;
 const sliderImages = [
     { src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000', title: 'Endless Scrolling' },
@@ -158,7 +150,6 @@ function updateSlider() {
     dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
 }
 
-// Gallery Logic
 const galleryImages = [
     { src: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1000', title: 'Circuit of Addiction' },
     { src: 'https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=1000', title: 'Ghost of Social Media' },
@@ -179,7 +170,6 @@ function initGallery() {
     `).join('');
 }
 
-// Lightbox Functions
 function openLightbox(src, caption) {
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
@@ -200,7 +190,6 @@ function toggleZoom() {
     if (img) img.classList.toggle('zoom-active');
 }
 
-// Login Logic
 function selectUser(gender) {
     document.querySelectorAll('.user-card').forEach(card => card.classList.remove('selected'));
     const card = document.getElementById(`user-${gender}`);
@@ -217,7 +206,6 @@ function handleLogin(e) {
     window.location.href = 'index.html';
 }
 
-// Contact Logic
 function saveFormData(e) {
     e.preventDefault();
     const data = {
@@ -247,7 +235,6 @@ function getSavedData() {
     `).join('');
 }
 
-// Read More Toggle
 function initReadMore() {
     document.querySelectorAll('.block-text p').forEach(p => {
         if (p.innerText.length > 200 && !p.nextElementSibling?.classList.contains('btn-read')) {
@@ -271,7 +258,6 @@ function initReadMore() {
     });
 }
 
-// Scroll Animations
 function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
