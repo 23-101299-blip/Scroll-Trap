@@ -74,7 +74,17 @@ const mindfulnessTips = [
     "Turn off all non-essential notifications.",
     "Set a specific time to check social media today.",
     "Try a 30-minute digital-free walk.",
-    "Use a physical alarm clock instead of your phone."
+    "Use a physical alarm clock instead of your phone.",
+    "Delete apps that consume most of your time.",
+    "Enable grayscale mode to make your screen less appealing.",
+    "Practice the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds.",
+    "Create phone-free zones in your home, like the bedroom or dining table.",
+    "Use app timers to limit daily usage of social media platforms.",
+    "Keep your phone on silent and face-down when working.",
+    "Unfollow accounts that don't add value to your life.",
+    "Replace scrolling with reading a physical book before bed.",
+    "Turn off autoplay for videos to avoid getting sucked into endless content.",
+    "Make your phone inconvenient: remove it from your pocket and place it across the room."
 ];
 
 function displayRandomTip() {
@@ -162,6 +172,15 @@ function updateSlider() {
 // Gallery Slider Logic
 let currentGallerySlide = 0;
 let galleryAutoplayInterval = null;
+
+const galleryImages = [
+    { src: 'assets/images/scroll_awareness.jpg', title: 'The Endless Void', info: 'Infinite feeds are designed to keep you scrolling long after your interest has faded.' },
+    { src: 'assets/images/silent_room.jpg', title: 'The Silent Room', info: 'Presence is becoming a luxury as we choose pixels over the people sitting right next to us.' },
+    { src: 'assets/images/nomophobia.jpg', title: 'The Modern Cage', info: 'The fear of being without a device is a documented psychological state.' },
+    { src: 'assets/images/great_disconnect.jpg', title: 'Silent Dinners', info: 'Presence is becoming a luxury as we choose pixels over people nearby.' },
+    { src: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1000', title: 'The Loop', info: 'Infinite scrolling eliminates the natural stopping points our brains need.' },
+    { src: 'https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000', title: 'Screens of Sleep', info: 'Blue light suppresses melatonin, disrupting our natural circadian rhythms.' }
+];
 
 function initGallery() {
     const track = document.getElementById('gallery-slider-track');
@@ -280,18 +299,91 @@ function handleLogin(e) {
 }
 
 // Contact Logic
+function validateForm(name, email, message) {
+    const errors = [];
+
+    // Name validation
+    if (!name || name.trim().length < 2) {
+        errors.push('Name must be at least 2 characters long');
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+        errors.push('Please enter a valid email address');
+    }
+
+    // Message validation
+    if (!message || message.trim().length < 10) {
+        errors.push('Message must be at least 10 characters long');
+    }
+
+    return errors;
+}
+
+function showSuccessSendMsg() {
+    // Create success message element
+    const existingMsg = document.getElementById('success-message');
+    if (existingMsg) existingMsg.remove();
+
+    const successMsg = document.createElement('div');
+    successMsg.id = 'success-message';
+    successMsg.style.cssText = `
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        padding: 20px 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+        z-index: 10000;
+        font-weight: 600;
+        font-size: 1.1rem;
+        animation: slideDown 0.5s ease-out;
+    `;
+    successMsg.innerHTML = '✓ Message sent successfully!';
+
+    document.body.appendChild(successMsg);
+
+    // Auto-remove after 3 seconds
+    setTimeout(() => {
+        successMsg.style.animation = 'slideUp 0.5s ease-in';
+        setTimeout(() => successMsg.remove(), 500);
+    }, 3000);
+}
+
 function saveFormData(e) {
     e.preventDefault();
+
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+
+    // Validate form
+    const errors = validateForm(name, email, message);
+    if (errors.length > 0) {
+        alert('Please fix the following errors:\n\n' + errors.join('\n'));
+        return;
+    }
+
+    // Save data
     const data = {
-        name: document.getElementById('contact-name').value,
-        email: document.getElementById('contact-email').value,
-        message: document.getElementById('contact-message').value,
+        name: name,
+        email: email,
+        message: message,
         date: new Date().toLocaleString()
     };
+
     let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
     messages.push(data);
     localStorage.setItem('contactMessages', JSON.stringify(messages));
-    alert('Message sent!');
+
+    // Show success message
+    showSuccessSendMsg();
+
+    // Reset form
     e.target.reset();
 }
 

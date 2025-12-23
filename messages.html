@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | Scroll Trap</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body onload="getSavedData()">
+    <div id="preloader">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <a href="index.html" class="logo">SCROLL TRAP</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="messages.html" class="active">Messages</a></li>
+        </ul>
+        <button class="btn-icon" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </nav>
+
+    <div id="scroll-top">↑</div>
+
+    <!-- Messages Table Section -->
+    <section class="table-container">
+        <h1 style="text-align: center; margin-bottom: 2rem;">Contact Messages</h1>
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 5%;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="messages-table-body">
+                    <!-- Messages injected by JS -->
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-gray);">
+                <p>Messages are stored in browser's localStorage</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">SCROLL TRAP</a>
+                <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.8rem;">
+                    Empowering individuals to reclaim their attention in a digital world designed to distract.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li>Addiction Statistics</li>
+                    <li>Mindfulness Tips</li>
+                    <li>Neurological Impact</li>
+                    <li>Digital Detox Guides</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li>Success Stories</li>
+                    <li>Awareness Forum</li>
+                    <li>Live Workshops</li>
+                    <li>Image Gallery</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>Support@scrolltrap.org</p>
+                <p>Maadi, Cairo, Egypt</p>
+                <p>+20 (2) 2517-xxxx</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
