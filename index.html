@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Trap | Addiction Pathways</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo-container">
+            <a href="index.html" class="logo">SCROLL TRAP</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
+            <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
+            <li><a href="login.html" data-i18n="nav_login">Login</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="btn-icon" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-redesign">
+            <div class="hero-gfx">
+                <img src="assets/images/hero_custom.jpg" alt="Brain addiction circuit" id="hero-main-img">
+                <div class="hero-content-overlay">
+                    <h1 class="title-primary" data-i18n="hero_title_1">Addiction Pathways</h1>
+                    <h2 class="title-secondary" data-i18n="hero_title_2">Dopamine Loops</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Numbers Section -->
+        <section class="numbers-section reveal" id="stats">
+            <h2 class="section-label">The Numbers</h2>
+            <div class="numbers-grid">
+                <div class="number-item">
+                    <span class="num">4.8</span>
+                    <span class="unit">Hours</span>
+                    <p class="desc">Average daily screen time</p>
+                </div>
+                <div class="number-item">
+                    <span class="num">352</span>
+                    <span class="unit">Times</span>
+                    <p class="desc">Average daily phone checks</p>
+                </div>
+                <div class="number-item">
+                    <span class="num">8</span>
+                    <span class="unit">Seconds</span>
+                    <p class="desc">Average human attention span</p>
+                </div>
+                <div class="number-item">
+                    <span class="num">2.5</span>
+                    <span class="unit">Seconds</span>
+                    <p class="desc">Time to grab attention</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Endless Scroll Feature Card -->
+        <section class="feature-card-section reveal" id="addiction">
+            <div class="feature-card">
+                <div class="card-content">
+                    <h3>The Endless Scroll</h3>
+                    <p class="card-intro">Feed algorithms are engineered to eliminate natural stopping points and keep
+                        you scrolling forever.</p>
+                    <div class="card-features" id="card-features">
+                        <!-- Features injected by JS -->
+                    </div>
+                </div>
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=1000"
+                        alt="Person on phone">
+                </div>
+            </div>
+        </section>
+
+        <!-- The Big Typography -->
+        <section class="big-statement">
+            <h2 class="reveal">Your phone isn't just a device.<br>It's controlling your attention.</h2>
+            <p class="reveal">Every notification, reel, and alert is engineered to hijack your focus. Your brain is
+                being rewired,
+                dopamine hit by dopamine hit, eroding your ability to concentrate and be present.</p>
+        </section>
+
+        <!-- Side-by-Side Content Blocks -->
+        <section class="content-blocks">
+            <div class="block reveal">
+                <div class="block-img">
+                    <img src="assets/images/great_disconnect.jpg" alt="The Great Disconnect - Dinner table isolation">
+                </div>
+                <div class="block-text">
+                    <h3>The Great Disconnect</h3>
+                    <p>Modern phones while supposedly connecting us and giving us a world of information at our
+                        fingertips, can lead to social isolation. Heavy social media use can often contribute to mental
+                        health issues like anxiety, depression, and loneliness. It is vital to find a balance between
+                        digital and physical connections to lead a healthier life.</p>
+                </div>
+            </div>
+
+            <div class="block reverse reveal">
+                <div class="block-img">
+                    <img src="assets/images/nomophobia.jpg" alt="Nomophobia illustration">
+                </div>
+                <div class="block-text">
+                    <h3>Nomophobia</h3>
+                    <p>Nomophobia, or NOMOBILE-PHONE-PHOBIA, is the psychological fear or anxiety of being without your
+                        mobile phone or losing mobile service. It often stems from a dependency on the device for
+                        communication, social validation, and information, leading to feelings of panic and irritability
+                        when the phone is not accessible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infinite Loop Section -->
+        <section class="infinite-section reveal">
+            <div class="inf-icon">↓ ∞ ↓</div>
+            <h2>The Endless Scroll:<br><span>Designed to Never End</span></h2>
+            <p>Infinite feeds, autoplay videos, and suggestive content are all engineered to eliminate natural stopping
+                points and keep you scrolling forever.</p>
+        </section>
+
+        <!-- Average Session Stats -->
+        <section class="session-stats reveal">
+            <h3>The Average Session</h3>
+            <div class="session-grid">
+                <div class="session-item">
+                    <span class="s-num">53</span>
+                    <p>minutes per TikTok session</p>
+                </div>
+                <div class="session-item">
+                    <span class="s-num">30+</span>
+                    <p>minutes per Instagram session</p>
+                </div>
+                <div class="session-item">
+                    <span class="s-num">∞</span>
+                    <p>personalized for your life</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">Scroll Trap</div>
+                <p style="margin-top: 1rem; color: var(--text-gray); font-size: 0.8rem;" data-i18n="footer_mission">
+                    Empowering individuals to reclaim their attention in a digital world designed to distract.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_resources">Resources</h4>
+                <ul>
+                    <li data-i18n="footer_stats">Addiction Statistics</li>
+                    <li data-i18n="footer_tips">Mindfulness Tips</li>
+                    <li data-i18n="footer_impact">Neurological Impact</li>
+                    <li data-i18n="footer_guides">Digital Detox Guides</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_community">Community</h4>
+                <ul>
+                    <li data-i18n="footer_stories">Success Stories</li>
+                    <li data-i18n="footer_forum">Awareness Forum</li>
+                    <li data-i18n="footer_events">Live Workshops</li>
+                    <li data-i18n="nav_gallery">Image Gallery</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="nav_contact">Contact Us</h4>
+                <p>Support@scrolltrap.org</p>
+                <p>Partnerships@scrolltrap.org</p>
+                <p>Awareness@scrolltrap.org</p>
+                <p>Global Campaign H.Q.</p>
+                <p>+1 800 ATTENTION</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="scroll-top">↑</div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
